@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cops0wxwkverf"]
+
+[ext_resource type="Texture2D" uid="uid://hyvnrbmfvvm7" path="res://Sprites/Tileset.png" id="1_j0p05"]
+[ext_resource type="Script" uid="uid://y6pvh7kxaj0g" path="res://Scripts/DungeonGenerator.cs" id="2_gjpho"]
+[ext_resource type="PackedScene" uid="uid://dr4yqu0vbc0l8" path="res://Scenes/Player.tscn" id="2_j0p05"]
+[ext_resource type="Script" uid="uid://b6wfmuw8ki4xv" path="res://Scripts/Player.cs" id="3_5nsto"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gjpho"]
+texture = ExtResource("1_j0p05")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_o3h3i"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_gjpho")
+
+[node name="World" type="Node" unique_id=1600333779]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=719903171]
+tile_set = SubResource("TileSet_o3h3i")
+
+[node name="DungeonGenerator" type="Node" parent="." unique_id=1186874979 node_paths=PackedStringArray("tileMapLayer", "player")]
+script = ExtResource("2_gjpho")
+tileMapLayer = NodePath("../TileMapLayer")
+player = NodePath("../Player")
+
+[node name="Player" parent="." unique_id=892135478 instance=ExtResource("2_j0p05")]
+script = ExtResource("3_5nsto")
